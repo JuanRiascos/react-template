@@ -30,6 +30,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "react-app-env --env-file=environments/.env.development start",
+    "prod": "react-app-env --env-file=environments/.env.production start",
     "build:prod": "react-app-env --env-file=environments/.env.production build",
     "heroku-postbuild": "npm run build:prod",
     "deploy-firebase":"firebase init && npm run build:prod && firebase deploy"
