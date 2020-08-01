@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { FormLogin } from "./FormLogin/FormLogin"
+import { Login as FormLogin } from "./FormLogin/FormLogin"
 
 export const Login = () => {
 

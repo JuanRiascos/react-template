@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormRegister } from "../../../components/FormRegister/FormRegister"
+import { Register as FormRegister } from "../../../components/FormRegister/FormRegister"
 import { Row, Col } from 'antd';
 import { useTranslation } from 'react-i18next';
 
