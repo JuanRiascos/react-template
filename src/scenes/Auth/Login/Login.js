@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Row, Col } from 'antd';
+import { Row, Col,Card } from 'antd';
 import { useTranslation } from 'react-i18next';
 import { FormLogin } from "./FormLogin/FormLogin"
 
@@ -9,12 +9,11 @@ export const Login = () => {
 
   return (
     <div className="component-login">
-      <Row>
-        <Col>
+      <Card className="card-content">
           <h1>{t('login')}</h1>
-        </Col>
-      </Row>
+
       <FormLogin/>
+      </Card>
     </div>
   )
 }

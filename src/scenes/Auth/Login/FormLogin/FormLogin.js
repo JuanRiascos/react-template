@@ -2,11 +2,17 @@ import React from 'react';
 import { Form, Icon, Input, Button, Checkbox, Row, Col } from 'antd';
 import { useTranslation } from "react-i18next";
 import { useDispatch } from 'react-redux'
+import {useHistory} from 'react-router';
+
 import { auth } from '../../../../services/Auth/AuthActions'
+
+
 
 const Login = ({ form }) => {
 
 	const { login } = auth;
+	const history = useHistory();
+
 	const dispatch = useDispatch()
 	const { t } = useTranslation();
 	const { getFieldDecorator, validateFields } = form
@@ -20,11 +26,13 @@ const Login = ({ form }) => {
 			}
 		});
 	};
-
+	const handleClick = () => {
+		history.push('/list')
+	  }
 	return (
-		<Form onSubmit={handleSubmit} className="login-form">
+		<Form style={{display:'flex',marginLeft:80,marginRight:80,flexDirection:'column'}} onSubmit={handleSubmit} >
 			<Row>
-				<Col span={24}>
+				<Col >
 					<Form.Item label={t('mail')}>
 						{getFieldDecorator('email', {
 							rules: [{ required: true, message: `${t('pleace')}s ${t('mail')}` }],
@@ -36,7 +44,7 @@ const Login = ({ form }) => {
 			</Row>
 
 			<Row>
-				<Col span={24}>
+				<Col >
 					<Form.Item label={t('password')}>
 						{getFieldDecorator('password', {
 							rules: [{ required: true, message: `${t('pleace')}s ${t('password')}` }],
@@ -50,14 +58,14 @@ const Login = ({ form }) => {
 			</Row>
 
 			<Row>
-				<Col span={6}>
+				<Col >
 					<Form.Item>
 						<a className="login-form-forgot" href="">
 							{t('reset_password')}
 						</a>
 					</Form.Item>
 				</Col>
-				<Col span={4} offset={14}>
+				<Col >
 					<Form.Item>
 						<Button type="primary" htmlType="submit" className="login-form-button">
 							{t('continue')}
@@ -67,7 +75,7 @@ const Login = ({ form }) => {
 			</Row>
 
 			<Row>
-				<Col span={6}>
+				<Col >
 					<Form.Item>
 						{getFieldDecorator('remember', {
 							valuePropName: 'checked',
@@ -75,10 +83,10 @@ const Login = ({ form }) => {
 						})(<Checkbox>{t('remember')}</Checkbox>)}
 					</Form.Item>
 				</Col>
-				<Col span={4} offset={14}>
+				<Col >
 					<Form.Item>
 						<Form.Item>
-							<Button type="primary" className="login-form-button">
+							<Button type="primary" onClick={handleClick} className="login-form-button">
 								{t('register')}
 							</Button>
 						</Form.Item>
